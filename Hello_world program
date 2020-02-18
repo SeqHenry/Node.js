@@ -1,0 +1,19 @@
+function sayHello(name) {
+    console.log('Hello '+name)
+}
+
+var message = '';
+console.log(global.message);//cannot use it as it is not global
+console.log(module);
+
+//sayHello('Joel')
+//console.log(window)
+
+/*setTimeout()
+clearTimeout()
+
+setInterval(() => {
+    
+}, interval);
+
+clearInterval()*/
