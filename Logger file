@@ -1,0 +1,27 @@
+//Logger file: To access file from another file in node.js
+
+console.log(__filename);
+console.log(__dirname);
+
+var url='http://mylogger.io/log';
+//private file
+function log(message){
+
+    //send an HTTP request
+    console.log(message);
+}
+
+module.exports.log = log; //Here it exports objects.
+//module.exports.endPoint  = url;
+
+module.exports = log; //Here it exports module.
+
+*******************************************************************
+                     In another file
+*******************************************************************
+
+const log = require ('./logger');
+log('message');
+
+
+                    
