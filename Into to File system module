@@ -1,0 +1,19 @@
+**********************************************************
+                 File system Modules
+**********************************************************
+
+const fs = require ('fs');
+const files = fs.readdirSync('./');//Synchronous files system api
+console.log(files);
+
+//Asynchronous file system api
+
+fs.readdir('./', function(err,files){  // proper syntax
+    if(err) console.log('Error',err);
+    else console.log('Result',files);
+});
+
+fs.readdir('$', function(err,files){   //Error passing
+    if(err) console.log('Error',err);
+    else console.log('Result',files);
+});
