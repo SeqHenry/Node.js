@@ -1,0 +1,81 @@
+/************************************************************************************************************************************************/
+
+                                                    //To create a file in node.js 
+                                                    //Run the code snippets separetely. 
+
+/************************************************************************************************************************************************/
+ const fs = require('fs');
+// //Create a file
+// fs.writeFile('example.txt',"This is an example",(err)=>{
+//     if (err)
+//         console.log(err);
+//     else
+//          console.log('File successfully created');
+//          fs.readFile('example.txt',(err,file)=>{    //Without encoding type utf8 output is<Buffer 54 68 69 73 20 69 73 20 61 6e 20 65 78 61 6d 70 6c 65>
+//              if(err)
+//                 console.log(err);
+//              else
+//                 console.log(file);
+//          });
+//  });
+
+ /************************************************************************************************************************************************/
+
+                                     //Using type encoding to create file.txt ####### run both files separetely
+        
+/*************************************************************************************************************************************************/
+// const fs = require('fs');
+// // Create a file
+// fs.writeFile('example.txt',"This is an example",(err)=>{
+//     if (err)
+//         console.log(err);
+//     else
+//          console.log('File successfully created');
+//          fs.readFile('example.txt','utf8',(err,file)=>{       //Encoding type is provided here.
+//              if(err)
+//                 console.log(err);
+//              else
+//                 console.log(file);
+//          });
+// });
+
+
+/*************************************************************************************************************************************************/
+
+                                                //To rename already existing file.
+
+/*************************************************************************************************************************************************/
+
+// fs.rename('example.txt','example2.txt',(err)=>{
+//     if(err)
+//        console.log(err);
+//     else
+//        console.log('Successfully renamed the file');
+// });
+
+ 
+/**************************************************************************************************************************************************/
+
+                                                //To append already existing file.
+
+/**************************************************************************************************************************************************/
+// fs.appendFile('example2.txt',' Some data being appended',(err)=>{
+//     if(err)
+//        console.log(err);
+//     else
+//        console.log('Successfully appended data to our file');         
+       
+// });
+
+/**************************************************************************************************************************************************/
+
+                                                //To delete existing file.
+
+/**************************************************************************************************************************************************/
+
+fs.unlink('example2.txt',(err)=>{
+    if(err)
+        console.log(err);
+    else
+        console.log('Successfully deleted the file');
+})
