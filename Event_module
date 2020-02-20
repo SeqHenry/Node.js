@@ -1,0 +1,53 @@
+/****************************************************************
+
+                      Node.js Event module program.
+
+*****************************************************************/
+
+const EventEmitter = require('events');
+const eventEmitter = new EventEmitter();
+
+//Event listener without params
+eventEmitter.on('tutorial',()=>{
+    console.log('tutorial event has occured');
+});
+
+eventEmitter.emit('tutorial');
+
+//Event listener with params
+eventEmitter.on('tutorial',(num1,num2)=>{
+    console.log(num1 + num2);
+});
+
+eventEmitter.emit('tutorial',1,2);
+
+class Person extends EventEmitter{
+    constructor(name){
+        super();
+        this._name = name;
+    }
+
+    get name(){
+        return this._name;
+    }
+    
+}
+
+let pedro = new Person ('Pedro');
+let christina = new Person ('Christina');
+
+//Pedro event listener
+pedro.on('name',()=>{
+    console.log('My name is '+ pedro.name);
+});
+
+//Pedro event emitter
+pedro.emit('name');
+
+//Christina event listener
+christina.on('name',()=>{
+    console.log('Her name is '+ christina.name);
+});
+
+//Christina event emitter
+christina.emit('name');
