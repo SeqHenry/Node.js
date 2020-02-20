@@ -1,0 +1,92 @@
+/******************************************************************************************
+
+                    Program to create file/folder also delete the same
+                    Also created multiple files in a folder and deleted the same
+                    Run each code snippet separately.
+******************************************************************************************/
+
+
+/****************************Create a File system folder***********************************/
+
+// fs.mkdir('tutorial',(err)=>{
+//     if(err)
+//        console.log(err);
+//        else{
+//            console.log('Folder successfully created');
+//        }
+// });
+
+
+/****************************Create a FS folder and delete it*******************************/
+
+//const fs = require ('fs');
+// fs.mkdir('tutorial',(err)=>{
+//     if(err)
+//        console.log(err);
+//        else{
+//            fs.rmdir('tutorial',(err)=>{
+//             if(err)
+//                 console.log(err);
+//             else{
+//                 console.log('Successfully deleted the folder');
+//             }
+
+//            });
+//        }
+// });
+
+/*****************Create a FS folder and create text file and write data into it**************/
+
+// const fs = require ('fs');
+// fs.mkdir('tutorial',(err)=>{
+//     if(err)
+//        console.log(err);
+//        else{
+           
+//             fs.writeFile('./tutorial/example.txt','123',(err)=>{
+//                 if(err)
+//                     console.log(err);
+//                 else{
+//                     console.log('Succefully created file');                
+//                     }
+//             });         
+//        }
+// });
+
+
+/******************Program to delete FS folder along with file********************************/
+
+// const fs = require ('fs');
+// fs.unlink('./tutorial/example.txt',(err)=>{
+//     if(err)
+//         console.log(err);
+//     else{
+//         fs.rmdir('tutorial',(err)=>{
+//             if(err)
+//                 console.log(err);
+//             else{
+//                 console.log('Deleted folder');
+//             }
+//         });
+//     }
+// });
+
+/***************Program to read multiple files in FS folder and delete all*******************/
+
+const fs = require ('fs');
+fs.readdir('example',(err,files)=>{
+    if(err)
+        console.log(err);
+    else{
+        for(let file of files){
+            fs.unlink('./example/'+file,(err)=>{
+                if(err)
+                    console.log(err);
+                else{
+                    console.log('Successfully deleted file');
+                }
+            });
+        }
+        console.log(files);
+    }
+});
