@@ -1,0 +1,47 @@
+/**********************************************************************************************************
+
+                                //Program for pipes and pipe chaining
+                                //Run each code snippet separately
+
+***********************************************************************************************************/
+
+// const fs = require('fs');
+// const readStream =fs.createReadStream('./example.txt','utf8');//To read stream of data from a file.
+// const writeStream = fs.createWriteStream('example3.txt');// To write data which read into another file.
+// readStream.on('data',(chunk)=>{    //Listen read stream event.
+//     console.log(chunk);
+
+// });
+
+// readStream.on('data',(chunk)=>{    //ListenEvent to write into a file.
+//     writeStream.write(chunk);
+
+// });
+
+/*************************Simpler way of writing the above slashed code*************************************/
+// const fs = require('fs');
+// const zlib = require('zlib');
+// const gzip = zlib.createGzip();
+// const readStream =fs.createReadStream('./example.txt','utf8'); //To read stream of data from a file.
+// const writeStream = fs.createWriteStream('example3.txt');      // To write data which read into another file.
+//readStream.pipe(writeStream);                                   //Here pipe api is used to read from a example file
+                                                                  // to written to example3 file.
+
+
+
+/*************************Created a zip file of source file***************************************************/
+// const fs = require('fs');
+// const zlib = require('zlib');
+// const gzip = zlib.createGzip();
+// const readStream =fs.createReadStream('./example.txt','utf8');
+// const writeStream1 = fs.createWriteStream('example4.txt.gz');//added extension gz to file to create zip file
+// readStream.pipe(gzip).pipe(writeStream1);
+
+
+/**************************Prog to unzip a file with source compressed file***********************************/
+const fs = require('fs');
+const zlib = require('zlib');
+const gunzip = zlib.createGunzip();
+const readStream =fs.createReadStream('./example4.txt.gz');
+const writeStream2 = fs.createWriteStream('uncompressed.txt');
+readStream.pipe(gunzip).pipe(writeStream2);
